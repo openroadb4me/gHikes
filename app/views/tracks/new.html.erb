@@ -1,5 +1,9 @@
 <%- model_class = Track -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <h1>New Hike</h1>
 </div>
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'View tracks', tracks_path %></li>
+  <li class="active"><%= link_to 'New track', new_track_path %></li>
+</ul>
 <%= render :partial => 'form' %>

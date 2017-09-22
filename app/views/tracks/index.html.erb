@@ -20,52 +20,48 @@
      <meta name="msapplication-TileColor" content="#ffffff">
      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
      <meta name="theme-color" content="#ffffff">
-    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    <h1>Hikes in Georgia</h1>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th><%= model_class.human_attribute_name(:id) %></th>
-        <th><%= model_class.human_attribute_name(:name) %></th>
-        <th><%= model_class.human_attribute_name(:distance) %></th>
-        <th><%= model_class.human_attribute_name(:difficulty) %></th>
-        <th><%= model_class.human_attribute_name(:description) %></th>
-        <th><%= model_class.human_attribute_name(:image) %></th>
-        <th><%= model_class.human_attribute_name(:link) %></th>
-        <th><%= model_class.human_attribute_name(:completed) %></th>
-        <th><%= model_class.human_attribute_name(:gpx_file_name) %></th>
-        <th><%= model_class.human_attribute_name(:gpx_content_type) %></th>
-        <th><%= model_class.human_attribute_name(:gpx_file_size) %></th>
-        <th><%= model_class.human_attribute_name(:gpx_updated_at) %></th>
-        <th><%= model_class.human_attribute_name(:created_at) %></th>
-        <th><%=t '.actions', :default => t("helpers.actions") %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @tracks.each do |track| %>
+  <div class="page-body">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><%= link_to 'View tracks', tracks_path %></li>
+      <li><%= link_to 'New track', new_track_path %></li>
+    </ul>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= link_to track.id, track_path(track) %></td>
-          <td><%= track.name %></td>
-          <td><%= track.distance %></td>
-          <td><%= track.difficulty %></td>
-          <td><%= track.description %></td>
-          <td><%= image_tag(track.image, :class => 'list_image') %></td>
-          <td><%= track.link %></td>
-          <td><%= track.completed %></td>
-          <td>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_track_path(track), :class => 'btn btn-default btn-xs' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        track_path(track),
-                        :method => :delete,
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'btn btn-xs btn-danger' %>
-          </td>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:description) %></th>
+          <th><%= model_class.human_attribute_name(:image) %></th>
+          <th><%= model_class.human_attribute_name(:link) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @tracks.each do |track| %>
+          <tr>
+            <td><%= link_to track.id, track_path(track) %></td>
+            <td><%= track.name %></td>
+            <td><%= track.description %></td>
+            <td><%= image_tag(track.image, :class => 'list_image') %></td>
+            <td><%= track.link %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_track_path(track), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          track_path(track),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-xs btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <%= link_to t('.new', :default => t("helpers.links.new")),
-              new_track_path,
-              :class => 'btn btn-primary' %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+                new_track_path,
+                :class => 'btn btn-primary' %>
+  </div>
+</html>

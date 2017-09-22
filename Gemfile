@@ -30,6 +30,7 @@ gem 'twitter-bootstrap-rails'
 gem 'paperclip', '~> 3.0'
 gem 'nokogiri'
 gem 'carrierwave'
+gem 'polylines'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

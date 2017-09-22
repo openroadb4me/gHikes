@@ -46,4 +46,8 @@ class Track < ActiveRecord::Base
       tmp_segment.points << tmp_point
     end
   end
+
+  # def polyline_points
+  #   self.points.map(&amp;:latlng)
+  # end
 end
