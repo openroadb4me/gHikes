@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>gHikes</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'shared/navigation' %>
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-3">
+          <h3>About gHikes</h3>
+          <img src="/images/1220.jpg" width="100%">
+          <p>gHikes is a side project of Nathan Anderson of
+          <a href="http://www.openroadbeforeme.com" ref="_blank">The Open Road Before Me</a>
+          and is an effort to catalogue treks and hikes throughout the country of Georgia</p>
+        </div>
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%= google_maps_api %>
+  <%= track_id_to_js(@track.id) if @track %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </html>

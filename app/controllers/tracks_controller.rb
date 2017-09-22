@@ -10,6 +10,13 @@ class TracksController < ApplicationController
   # GET /tracks/1
   # GET /tracks/1.json
   def show
+    @track = Track.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json {
+        render :json => @track.to_json(:methods => [:polyline], :only => [:name])
+       }
+    end
   end
 
   # GET /tracks/new

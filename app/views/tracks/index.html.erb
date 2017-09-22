@@ -20,6 +20,7 @@
      <meta name="msapplication-TileColor" content="#ffffff">
      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
      <meta name="theme-color" content="#ffffff">
+     
     <h1>Hikes in Georgia</h1>
   </div>
   <div class="page-body">
@@ -60,8 +61,8 @@
       </tbody>
     </table>
 
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-                new_track_path,
-                :class => 'btn btn-primary' %>
+    <%= link_to new_track_path, class: 'btn btn-primary' do %>
+      <i class="glyphicon glyphicon-plus"></i> New hike
+    <% end %>
   </div>
 </html>
