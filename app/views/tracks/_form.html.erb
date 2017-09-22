@@ -1,0 +1,82 @@
+<%= form_for @track, :html => { :class => "form-horizontal track" } do |f| %>
+
+  <% if @track.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @track.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :distance, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :distance, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:distance) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :difficulty, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :difficulty, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:difficulty) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :image, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:image) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :link, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :link, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:link) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :completed, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.check_box :completed, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:completed) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :gpx, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.file_field :gpx, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                tracks_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
