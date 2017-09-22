@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en-US">
   <%- model_class = Track -%>
-  <div class="page-header">
+  <head>
     <meta charset = "UTF-8">
      <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
      <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -20,16 +20,18 @@
      <meta name="msapplication-TileColor" content="#ffffff">
      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
      <meta name="theme-color" content="#ffffff">
-     
-    <h1>Hikes in Georgia</h1>
-  </div>
-  <div class="page-body">
+     <link rel = "stylesheet"
+       type = "text/scss"
+       href = "tracks.scss" />
+  </head>
+  <body>
     <ul class="nav nav-tabs" role="tablist">
       <li class="active"><%= link_to 'View tracks', tracks_path %></li>
       <li><%= link_to 'New track', new_track_path %></li>
     </ul>
-    <table class="table table-striped">
-      <thead>
+    <h1>Hikes in Georgia</h1>
+    <table class="table-responsive">
+      <!-- <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:id) %></th>
           <th><%= model_class.human_attribute_name(:name) %></th>
@@ -38,16 +40,22 @@
           <th><%= model_class.human_attribute_name(:link) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
-      </thead>
+      </thead> -->
       <tbody>
         <% @tracks.each do |track| %>
           <tr>
-            <td><%= link_to track.id, track_path(track) %></td>
-            <td><%= track.name %></td>
-            <td><%= track.description %></td>
-            <td><%= image_tag(track.image, :class => 'list_image') %></td>
-            <td><%= track.link %></td>
-            <td>
+            <td class="col-xs-6"><%= image_tag(track.image, :class => 'image-responsive', :width => '100%') %></td>
+            <td class="col-xs-6">
+              <dl>
+                <dt><h3><%= link_to track.name, track_path(track) %></h3></dt>
+                <dd><%= truncate(strip_tags(track.description), :length => 500) %></dd>
+                <dd><a href="<%= track.link %>" target="_blank"><%= track.link %></a></dd>
+              </dl>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="list_actions" align="right">
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_track_path(track), :class => 'btn btn-default btn-xs' %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -64,5 +72,5 @@
     <%= link_to new_track_path, class: 'btn btn-primary' do %>
       <i class="glyphicon glyphicon-plus"></i> New hike
     <% end %>
-  </div>
+  </body>
 </html>

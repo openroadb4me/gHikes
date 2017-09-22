@@ -1,3 +1,57 @@
 // Place all the styles related to the Tracks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  .table-responsive {
+    background-color: #F5ECCE;
+    padding: 5px;
+  }
+}
+
+.list_image {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100%;
+}
+
+.list_description dl {
+  dt {
+    font-size: 1.5em;
+    font-style: bold;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  dd {
+    max-width: 95%;
+  }
+}
+
+.list_actions {
+  float: right;
+}
+
+.list_link {
+  float: right;
+  color: blue;
+  max-width: 100%;
+}
+
+.table-responsive {
+  tr td {
+    padding: 5px;
+    margin: 5px;
+    width: 50%;
+  }
+  border-style: groove;
+  border-color: inherit;
+  border-width: medium;
+}
+
+.btn-primary {
+  float: right;
+  padding-right: 10px;
+  margin-right: 10px;
+}
