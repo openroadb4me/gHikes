@@ -29,6 +29,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'twitter-bootstrap-rails'
 gem 'paperclip', '~> 3.0'
 gem 'nokogiri'
+gem 'carrierwave'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

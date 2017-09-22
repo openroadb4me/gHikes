@@ -13,7 +13,7 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @track.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= @track.image %></dd>
+  <dd><%= image_tag @track.image_url.to_s %></dd>
   <dt><strong><%= model_class.human_attribute_name(:link) %>:</strong></dt>
   <dd><%= @track.link %></dd>
   <dt><strong><%= model_class.human_attribute_name(:completed) %>:</strong></dt>

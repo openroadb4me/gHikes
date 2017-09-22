@@ -1,8 +1,7 @@
 class Track < ActiveRecord::Base
-
+  mount_uploader :image, ImageUploader
   has_many :tracksegments, :dependent => :destroy
   has_many :points, :through => :tracksegments
-
   has_attached_file :gpx
   # validates_attachment_content_type :gpx, :content_type => %w(text/xml text/plain)
   before_save :parse_file
