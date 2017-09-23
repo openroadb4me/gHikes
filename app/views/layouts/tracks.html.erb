@@ -4,18 +4,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>gHikes</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
   </head>
   <body>
     <%= render 'shared/navigation' %>
+
     <div id="main-container" class="container">
+      <div id="authentication" align="right">
+        <% if current_user %>
+          Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
+        <% else %>
+          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+        <% end %>
+      </div>
       <div class="row">
         <div class="col-xs-3">
           <h3>About gHikes</h3>
           <img src="/images/1220.jpg" width="100%">
           <p>gHikes is a side project of Nathan Anderson of
           <a href="http://www.openroadbeforeme.com" ref="_blank">The Open Road Before Me</a>
-          and is an effort to catalogue treks and hikes throughout the country of Georgia</p>
+          and is an effort to catalogue treks and hikes throughout the country of Georgia.</p>
+          <div class="social-icons">
+             <div class="col-xs-3" align="left">
+               <a href="http://www.facebook.com/openroadbeforeme" target="_blank"><img src="/images/facebook.jpg" width="100%"></a>
+             </div>
+             <div class="col-xs-3" align="left">
+               <a href="http://www.instagram.com/openroadb4me" target="_blank"><img src="/images/instagram.jpg" width="100%"></a>
+             </div>
+             <div class="col-xs-3" align="left">
+               <a href="http://www.twitter.com/openroadb4me" target="_blank"><img src="/images/twitter.jpg" width="100%"></a>
+             </div>
+             <div class="col-xs-3" align="left">
+               <a href="http://www.linkedin.com/in/nataanderson" target="_blank"><img src="/images/linkedin.jpg" width="100%"></a>
+             </div>
+           </div>
         </div>
         <div class="col-xs-9">
           <%= yield %>
@@ -26,4 +47,5 @@
   <%= google_maps_api %>
   <%= track_id_to_js(@track.id) if @track %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
   </html>

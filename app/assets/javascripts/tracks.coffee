@@ -3,12 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 gm_init = ->
 gm_center = new google.maps.LatLng(54, 12)
+# gm_center = new google.maps.LatLng($("#map_canvas").data(‘track’).latitude, $("#map_canvas").data(‘track’).longitude)
 gm_map_type = google.maps.MapTypeId.ROADMAP
 map_options = {center: gm_center, zoom: 8, mapTypeId: gm_map_type}
 new google.maps.Map(@map_canvas,map_options);
 
-load_track = (id, map) ->
-callback = (data) -> display_on_map(data, map)
+load_track = (id,map) ->
+callback = (data) -> display_on_map(data,map)
 $.get '/tracks/'+id+'.json', {}, callback, 'json'
 
 display_on_map = (data,map) ->
@@ -26,6 +27,7 @@ i = [0,(path_length/3).toFixed(0),(path_length/3).toFixed(0)*2]
 b.extend(gm_path.getAt(i[0]))
 b.extend(gm_path.getAt(i[1]))
 b.extend(gm_path.getAt(i[2]))
+
 
 $ ->
 map = gm_init()

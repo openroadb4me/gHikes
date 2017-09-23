@@ -1,0 +1,24 @@
+<h1>Signup!</h1>
+
+<table class="table" max-width="35%">
+<%= form_for :user, url: '/users' do |f| %>
+  <tr>
+    <td>First Name: </td><td><%= f.text_field :first_name %></td>
+  </tr>
+  <tr>
+    <td>Last Name: </td><td><%= f.text_field :last_name %></td>
+  </tr>
+  <tr>
+    <td>Email: </td><td><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td>Password: </td><td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td>Password Confirmation: </td><td><%= f.password_field :password_confirmation %></td>
+  </tr>
+  <tr>
+    <td></td><td><%= f.submit "Submit" %></td>
+  </tr>
+<% end %>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920111734) do
+ActiveRecord::Schema.define(version: 20170923025239) do
 
   create_table "points", force: :cascade do |t|
     t.integer  "tracksegment_id"
@@ -50,5 +50,14 @@ ActiveRecord::Schema.define(version: 20170920111734) do
   end
 
   add_index "tracksegments", ["track_id"], name: "index_tracksegments_on_track_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
 end
