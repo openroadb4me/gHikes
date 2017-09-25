@@ -14,7 +14,7 @@ $.get '/tracks/'+id+'.json', {}, callback, 'json'
 
 display_on_map = (data,map) ->
 decoded_path = google.maps.geometry.encoding.decodePath(data.polyline)
-path_options = { path: decoded_path, strokeColor: "#FF0000",strokeOpacity: 0.5, strokeWeight: 5}
+path_options = { path: decoded_path, strokeColor: "#FF0000", strokeOpacity: 0.5, strokeWeight: 5}
 track_path = new google.maps.Polyline(path_options)
 track_path.setMap(map)
 map.fitBounds(calc_bounds(track_path));
