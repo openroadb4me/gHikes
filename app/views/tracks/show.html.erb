@@ -7,7 +7,7 @@
 </div>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:distance) %>:</strong></dt>
-  <dd><%= @track.distance %></dd>
+  <dd><%= @track.distance %> km</dd>
   <dt><strong><%= model_class.human_attribute_name(:difficulty) %>:</strong></dt>
   <dd><%= @track.difficulty %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
@@ -15,13 +15,11 @@
   <!-- <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
   <dd><%= image_tag @track.image_url.to_s %></dd> -->
   <dt><strong><%= model_class.human_attribute_name(:link) %>:</strong></dt>
-  <dd><%= @track.link %></dd>
+  <dd><a href="<%= @track.link %>" target="_blank"><%= @track.link %></a></dd>
   <dt><strong><%= model_class.human_attribute_name(:completed) %>:</strong></dt>
   <dd><%= @track.completed %></dd>
   <dt><strong><%= model_class.human_attribute_name(:gpx_file_name) %>:</strong></dt>
   <dd><%= @track.gpx_file_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:gpx_content_type) %>:</strong></dt>
-  <dd><%= @track.gpx_content_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:gpx_file_size) %>:</strong></dt>
   <dd><%= @track.gpx_file_size %></dd>
   <dt><strong><%= model_class.human_attribute_name(:gpx_updated_at) %>:</strong></dt>

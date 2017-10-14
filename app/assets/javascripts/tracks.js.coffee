@@ -2,12 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 gm_init = ->
-gm_center = new google.maps.LatLng(54, 12)
+gm_center = new google.maps.LatLng(59.7838530, 5.2112377)
 # gm_center = new google.maps.LatLng($("#map_canvas").data(‘track’).latitude, $("#map_canvas").data(‘track’).longitude)
-gm_map_type = google.maps.MapTypeId.ROADMAP
-map_options = {center: gm_center, zoom: 8, mapTypeId: gm_map_type}
+gm_map_type = google.maps.MapTypeId.TERRAIN
+map_options = {center: gm_center, zoom: 12, mapTypeId: gm_map_type}
 new google.maps.Map(@map_canvas,map_options);
 
+# Code lseems to run fine up to this point
 load_track = (id,map) ->
 callback = (data) -> display_on_map(data,map)
 $.get '/tracks/'+id+'.json', {}, callback, 'json'
