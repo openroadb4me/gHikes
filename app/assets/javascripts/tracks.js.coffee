@@ -8,7 +8,7 @@ gm_map_type = google.maps.MapTypeId.TERRAIN
 map_options = {center: gm_center, zoom: 12, mapTypeId: gm_map_type}
 new google.maps.Map(@map_canvas,map_options);
 
-# Code lseems to run fine up to this point
+# Code seems to run fine up to this point
 load_track = (id,map) ->
 callback = (data) -> display_on_map(data,map)
 $.get '/tracks/'+id+'.json', {}, callback, 'json'
